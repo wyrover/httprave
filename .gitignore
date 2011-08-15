@@ -1,0 +1,6 @@
+tests/ipch
+tests/Debug
+tests/Release
+tests/*.sdf
+tests/*.suo
+tests/*.user
