@@ -12,16 +12,25 @@ void console_wait()
     ReadConsole(ConsoleInput, &InputBuffer, 1, &CharsRead, 0);
 }
 
-
 FCT_BGN()
 {
 
-    FCT_QTEST_BGN( basic_http_get )
+    FCT_QTEST_BGN( http_get )
     {
-        HTTPRaveResponse response = HTTPRaveRequest().get(L"http://google.com");
-        fct_chk( response.isSuccess() );
+        HTTPRaveRequest request();
+        fct_chk( request.get( L"http://google.com" ).isSuccess() );
     }
     FCT_QTEST_END();
+
+
+    FCT_QTEST_BGN( http_post_with_params )
+    {
+        HTTPRaveRequest request( L"http://google.com/search" );
+        request.setParam( L"q", L"Michael Jackson" );
+        fct_chk( request.post().isSuccess() );
+    }
+    FCT_QTEST_END();
+
 
 }
 FCT_END( console_wait(); );
