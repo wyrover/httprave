@@ -4,3 +4,4 @@ tests/Release
 tests/*.sdf
 tests/*.suo
 tests/*.user
+tests/*.opensdf

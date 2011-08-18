@@ -1,6 +1,5 @@
 #include "fct.h"
-#include "HTTPRaveRequest.h"
-#include "HTTPRaveResponse.h"
+#include "HTTPRave.h"
 #include <windows.h>
 
 void console_wait()
@@ -17,8 +16,7 @@ FCT_BGN()
 
     FCT_QTEST_BGN( http_get )
     {
-        HTTPRaveRequest request();
-        fct_chk( request.get( L"http://google.com" ).isSuccess() );
+        fct_chk( HTTPRaveRequest::Get( L"http://google.com" ).isSuccess() );
     }
     FCT_QTEST_END();
 
@@ -27,10 +25,16 @@ FCT_BGN()
     {
         HTTPRaveRequest request( L"http://google.com/search" );
         request.setParam( L"q", L"Michael Jackson" );
-        fct_chk( request.post().isSuccess() );
+        fct_chk( request.post().isSuccess() == true );
     }
     FCT_QTEST_END();
 
+
+    FCT_QTEST_BGN( https_get )
+    {
+        fct_chk( HTTPRaveRequest::Get( L"https://www.leaguereplays.com/" ).isSuccess() );
+    }
+    FCT_QTEST_END();
 
 }
 FCT_END( console_wait(); );

@@ -35,5 +35,8 @@
     <ClInclude Include="..\HTTPRaveResponse.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\HTTPRave.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

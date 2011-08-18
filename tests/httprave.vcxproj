@@ -74,6 +74,7 @@
     <ClCompile Include="tests.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\HTTPRave.h" />
     <ClInclude Include="..\HTTPRaveRequest.h" />
     <ClInclude Include="..\HTTPRaveResponse.h" />
     <ClInclude Include="fct.h" />
